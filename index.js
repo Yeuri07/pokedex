@@ -1,9 +1,25 @@
 
+function fetchPokemon(id){
+
+    const URL_POKEAPI = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+    return URL_POKEAPI;
+}
+
+function fetchPokemon(id) {
+    
+}
+
+fetch(URL_POKEAPI)
+.then(res => res.json())
+.then(response =>{
+    console.log(response)
+   
 const contenedor = document.querySelector(".flex-container");
 
 function crearPokemon(nombre,clase,habilidad){
  
-    img = `<img class='pokemon' src='pokeon_imagen.png'>`;
+    img = `<img class='pokemon' src='${response.sprites.back_default}'>`;
     nombre = `<h2 class='color-text'>${nombre}</h2>`;
     clase = `<h3><b>${clase}</b></h3>`;
     habilidad = `<p>habilidad: <b>$${habilidad}</b></p>`;
@@ -25,8 +41,18 @@ for(var i =1; i<=10; i++){
     div.classList.add(`item-${i}`,'flex-item');
     div.innerHTML = pokemon.join(" ")
     documentFragment.appendChild(div)
-
+    
 }
 
 contenedor.appendChild(documentFragment)
 
+}).catch(e => console.error(new Error(e)));
+
+
+function fetchPokemons(number){
+    for(let i = 1; i< number; i++){
+        fetchPokemon(i)
+    }
+}
+
+fetchPokemons(9)
