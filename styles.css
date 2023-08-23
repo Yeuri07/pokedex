@@ -5,7 +5,8 @@
 }
 
 body{
-    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
 }
 
 .header{
@@ -47,7 +48,7 @@ body{
 
 .container-pokemon{
     border: 1px solid rgba(37, 20, 20, 0.66);
-    
+    padding: 0px;
     border-radius: 6px;
     text-align: center;
 }

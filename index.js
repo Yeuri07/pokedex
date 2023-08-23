@@ -4,7 +4,7 @@ function fetchPokemon(id){
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 .then(res => res.json())
 .then(response =>{
-    console.log(response)
+   
    
 const contenedor = document.querySelector(".flex-container");
 
@@ -24,7 +24,7 @@ function crearPokemon(nombre,id,habilidad){
 
 let documentFragment = document.createDocumentFragment();
 
-    let pokemon = crearPokemon(`pokemon`)
+    let pokemon = crearPokemon()
     let div = document.createElement("DIV");
     div.classList.add("container-pokemon");
     div.innerHTML = pokemon.join(" ")
@@ -36,7 +36,7 @@ contenedor.appendChild(documentFragment)
 
 }
 function fetchPokemons(){
-    for(let i = 1; i<= 16; i++){
+    for(let i = 1; i<= 17; i++){
         fetchPokemon(i)
     }
 }
