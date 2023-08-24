@@ -1,44 +1,38 @@
+const cargarPokemon = async () =>{
+    try{
+    const responde = await fetch('https://pokeapi.co/api/v2/pokemon/')
 
-function fetchPokemon(id){
+    if(responde.status === 200){
+        const date = await responde.json();
+        console.log(date)
+        let pokemons = '';
 
-fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-.then(res => res.json())
-.then(response =>{
-   
-   
-const contenedor = document.querySelector(".flex-container");
+        date.results.forEach((pokemon,index) => {
+           
+            pokemons += `
+            <div class="container-pokemon">
+                <div class="id-pokemon"><span>ID</span><span>#${(index+1).toString().padStart(3,0)}</span></div>
+                <img class='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index+1}.svg">
+                <h3 class="color-text">${pokemon.name}</h3>
+            </div>`
+            console.log((index+1).toString().padStart(3,0))
+        });
+       
+        document.getElementById('container').innerHTML = pokemons;
 
-function crearPokemon(nombre,id,habilidad){
- 
-    id = `<div class='color-text id-pokemon'>
-    <span>ID</span>
-    <h3 ><b>#${response.id.toString().padStart(3,0)}</b></h3>
-    
-    </div>`;
-    img = `<img class='pokemon' src='${response.sprites.other.dream_world.front_default}'>`;
-    nombre = `<h2 class='color-text'>${response.name}</h2>`;
-    habilidad = `<p>habilidad: <b>$${habilidad}</b></p>`;
-
-    return [id,img,nombre,habilidad]
-}
-
-let documentFragment = document.createDocumentFragment();
-
-    let pokemon = crearPokemon()
-    let div = document.createElement("DIV");
-    div.classList.add("container-pokemon");
-    div.innerHTML = pokemon.join(" ")
-    documentFragment.appendChild(div)
-    
-contenedor.appendChild(documentFragment)
-
-}).catch(e => console.error(new Error(e)));
-
-}
-function fetchPokemons(){
-    for(let i = 1; i<= 17; i++){
-        fetchPokemon(i)
+    }else if(responde.status === 401){
+        console.log("Error no existe.")
+    }else if(responde.status === 404){
+        console.log("Pokemon no Existe!}.")
+    }else{
+        console.error("Error Unplanned !! ")
     }
+
+
+    }catch(error){
+        console.error(error)
+    } 
 }
 
-fetchPokemons()
+
+cargarPokemon();

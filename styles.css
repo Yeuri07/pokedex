@@ -44,13 +44,20 @@ body{
 
 .color-text{
     color: #18191d;
+    margin: 10px;
+  
 }
 
 .container-pokemon{
     border: 1px solid rgba(37, 20, 20, 0.66);
     padding: 0px;
     border-radius: 6px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    height: 220px;
 }
 
 .id-pokemon{
@@ -64,12 +71,13 @@ body{
     color: #FFFFFF;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
 }
 
 .pokemon{
     width: 120px;
     height: 120px;
-}
+    text-align: center;
 
+}
 
