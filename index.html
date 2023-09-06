@@ -10,28 +10,45 @@
 
 <body>
     <header class="header">
-        <img class="img__ico" src="public/img/Logo.png" alt="" width="40px">
-        <h1>Pokedex starting</h1>
 
+         <nav class="nav">
+            <div class="inicio__logo">
+                <img class="img__ico" src="public/img/Logo.png" alt="" width="70px">
+                <h1>Pokedex</h1>
+                </div>
+                <div class="container__input">
+                    <input type="text" id="input__pokemon" placeholder="Buscar Pokemon">
+                    <button id="miBoton">Generar pokemon</button>
+                </div>
+            <ul class="nav-list">
+                <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li> 
+                <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
+                <li class="nav-item"><button class="btn btn-header fire" id="fire">Fire</button></li>
+                <li class="nav-item"><button class="btn btn-header water" id="water">Water</button></li>
+                <li class="nav-item"><button class="btn btn-header grass" id="grass">Grass</button></li>
+                <li class="nav-item"><button class="btn btn-header electric" id="electric">Electric</button></li>
+                <li class="nav-item"><button class="btn btn-header ice" id="ice">Ice</button></li>
+                <li class="nav-item"><button class="btn btn-header fighting" id="fighting">Fighting</button></li>
+                <li class="nav-item"><button class="btn btn-header poison" id="poison">Poison</button></li>
+                <li class="nav-item"><button class="btn btn-header ground" id="ground">Ground</button></li>
+                <li class="nav-item"><button class="btn btn-header flying" id="flying">Flying</button></li>
+                <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psychic</button></li>
+                <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
+                <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
+                <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
+                <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
+                <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragon</button></li>
+                <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
+                <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
+            </ul>
+           
+       
+        </nav>
     </header>
 
     <main class="main">
-        <section class="filter__pokerdex">
-            <div class="all__filter filter">
-                <div class="all__filter-text">All Filters</div>
-            </div>
-            <div class="pokemon__class filter">
-                <div class="pokemon__class-text">Clases</div>
 
-                <div class="filter">
-                    <input type="text" id="input__pokemon" placeholder="Buscar Pokemon">
-                    <button id="miBoton">Generar pokemon</button>
-
-                </div>
-            
-        </section>
-
-        < <div class="container flex-container" id="container"></div>
+        <div class="container flex-container" id="container"></div>
     </main>
     <script src="index.js"></script>
 </body>
