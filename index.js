@@ -1,6 +1,5 @@
- 
 const input = document.getElementById('input__pokemon');
-
+const botonesTypes = document.querySelectorAll('.btn-header');
 const cargarPokemon = async () =>{
  
     const valorDeInput = input.value;
@@ -81,4 +80,39 @@ let tipos = poke.types.map((type) =>
 const boton = document.getElementById('miBoton');
 
 boton.addEventListener('click', cargarPokemon);
+
 cargarPokemon();
+
+botonesTypes.forEach(button => button.addEventListener("click",(e)=>{
+    const buttonId = e.currentTarget.id;
+    
+    document.getElementById('container').innerHTML = '';
+    let pokemons = '';
+
+    for(let i = 1; i<= 151; i++){
+        fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+    
+        .then((responde) => responde.json())
+        .then((date) =>{
+        
+           const detail = date.types.map(type => type.type.name);
+            
+           if(detail.some(tipo => tipo.includes(buttonId))){
+            let tipos = typesPoke(date);
+            pokemons += `<div class="container-pokemon">
+            <div class="id-pokemon"><span>ID</span><span>#${(date.id).toString().padStart(3,0)}</span></div>
+            <img class='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${date.id}.svg">
+            <div class="pokemon-tipos">${tipos}</div>
+            <h3 class="color-text">${date.name}</h3>
+            
+        </div>`
+       
+        document.getElementById('container').innerHTML = pokemons;
+           }
+          
+        })
+    }
+    if(buttonId === 'ver-todos'){
+        cargarPokemon();
+    }
+}))
