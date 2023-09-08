@@ -205,6 +205,7 @@ ul li {
     flex-direction: column;
     width: 220px;
     height: 270px;
+ 
 }
 
 .pokemon-tipos{
@@ -245,11 +246,13 @@ ul li {
 .solo{
     width: 400px;
     height: 500px;
+  
 }
 
 .solo > img{
     width: 300px;
     height: 300px;
+    
 }
 
 .solo > .id-pokemon {
@@ -262,7 +265,9 @@ ul li {
     background-color: #18191d;
     color: #FFFFFF;
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+
+}
 
 
 .solo > .pokemon-tipos >.tipo {
