@@ -244,9 +244,32 @@ ul li {
 
 .solo{
     width: 400px;
-    height: 400px;
+    height: 500px;
 }
 
+.solo > img{
+    width: 300px;
+    height: 300px;
+}
+
+.solo > .id-pokemon {
+    text-align: right;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 60%;
+    font-size: 18px;
+    background-color: #18191d;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between; }
+
+
+.solo > .pokemon-tipos >.tipo {
+    padding: 0.50rem 0.5rem;
+    border-radius: 100vmax;
+    font-size: 18px;
+}
 
 input[type ="text"]{
     flex: 1;
