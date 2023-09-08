@@ -1,41 +1,35 @@
  
 const input = document.getElementById('input__pokemon');
+
 const cargarPokemon = async () =>{
  
     const valorDeInput = input.value;
   
     try{
+
     const responde = await fetch(`https://pokeapi.co/api/v2/pokemon/${valorDeInput}`);
-    console.log(responde)
-   
-
-
     const partes = responde.url.split('/');
-
+    let result;
     const ultimoFramento = partes[partes.length - 1];
 
     if(ultimoFramento === ''){
 
         if(responde.status === 200){
-            const date = await responde.json();
-   
-
             let pokemons = '';
-           
-            date.results.forEach((pokemon,index) => {
-                
-              
-                pokemons += `
-                <div class="container-pokemon">
-                    <div class="id-pokemon"><span>ID</span><span>#${(index+1).toString().padStart(3,0)}</span></div>
-                    <img class='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${index+1}.svg">
-                    <div class="pokemon-tipos"></div>
-                    <h3 class="color-text">${pokemon.name}</h3>
-                    
+       
+            for(let i = 1; i <= 50; i++){
+                result = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+                const date = await result.json();
+                let tipos = typesPoke(date);
+                pokemons += `<div class="container-pokemon">
+                <div class="id-pokemon"><span>ID</span><span>#${(date.id).toString().padStart(3,0)}</span></div>
+                <img class='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${date.id}.svg">
+                <div class="pokemon-tipos">${tipos}</div>
+                <h3 class="color-text">${date.name}</h3>
                 </div>`
                
-            });
-           
+            }
+         
             document.getElementById('container').innerHTML = pokemons;
     
         }else if(responde.status === 401){
@@ -48,31 +42,43 @@ const cargarPokemon = async () =>{
     
     } else {
 
-
         let pokemons = '';
       
         fetch(responde.url)
+       
         .then((responde) => responde.json())
         .then((date) =>{
-            
+        
+            let tipos = typesPoke(date);
+       
             pokemons += `<div class="container-pokemon solo">
             <div class="id-pokemon"><span>ID</span><span>#${(date.id).toString().padStart(3,0)}</span></div>
             <img class='pokemon' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${date.id}.svg">
+            <div class="pokemon-tipos">${tipos}</div>
             <h3 class="color-text">${date.name}</h3>
-          
+            
         </div>`
-
+   
             document.getElementById('container').innerHTML = pokemons;
         })
-}
-    
-    
+     
+    }
 
     }catch(error){
         console.error(error)
     } 
 }
 
+function typesPoke(poke){
+  
+let tipos = poke.types.map((type) =>
+  `<p class="${type.type.name} tipo">${type.type.name}</p>`)
+    tipos = tipos.join('');
+
+    return tipos;
+}
+
 const boton = document.getElementById('miBoton');
 
 boton.addEventListener('click', cargarPokemon);
+cargarPokemon();
