@@ -89,7 +89,7 @@ botonesTypes.forEach(button => button.addEventListener("click",(e)=>{
     document.getElementById('container').innerHTML = '';
     let pokemons = '';
 
-    for(let i = 1; i<= 151; i++){
+    for(let i = 1; i<= 649; i++){
         fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
     
         .then((responde) => responde.json())
