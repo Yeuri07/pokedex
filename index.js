@@ -1,5 +1,6 @@
 const input = document.getElementById('input__pokemon');
 const botonesTypes = document.querySelectorAll('.btn-header');
+
 const cargarPokemon = async () =>{
  
     const valorDeInput = input.value;
@@ -69,7 +70,7 @@ const cargarPokemon = async () =>{
 }
 
 function typesPoke(poke){
-  
+
 let tipos = poke.types.map((type) =>
   `<p class="${type.type.name} tipo">${type.type.name}</p>`)
     tipos = tipos.join('');

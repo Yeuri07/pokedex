@@ -220,6 +220,8 @@ ul li {
 
 .main{
     padding: 2rem;
+    min-height: 100vh;
+     
 }
 .id-pokemon{
     text-align: right;
@@ -315,4 +317,10 @@ input[type ="text"]{
 
 .img__ico{
     border-radius: 100vmax;
+ }
+
+ .footer{
+    background-color: #1c1c1c;
+    padding: 20px;
+    text-align: center;
  }
