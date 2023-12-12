@@ -2,5 +2,6 @@
 
 - Starting making a Pokedex with html, css and JS
 
-# project in process
-![Screenshot_2](https://github.com/Yeuri07/pokedex/assets/104517674/4decefdd-f321-4388-ae10-8515a9d19c6c)
+# Finished project
+
+![Screenshot_3](https://github.com/Yeuri07/pokedex/assets/104517674/49d002ef-c0e5-46b7-9f8f-57d572b1ea99)
